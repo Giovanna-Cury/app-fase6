@@ -1,0 +1,21 @@
+/* Painel de sensores: estilos de pagina (tabela/KPIs vivem em styles.css) */
+.state-box {
+  margin-top: 4px;
+}
+
+.banner {
+  margin-bottom: 16px;
+}
+
+.kpi-grid {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.kpi-card:nth-child(5)::before { background: #a855f7; }
+.kpi-card:nth-child(6)::before { background: var(--danger); }
+
+.head-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

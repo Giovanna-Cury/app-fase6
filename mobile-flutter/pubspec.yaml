@@ -1,0 +1,28 @@
+name: fasequatrog
+description: "Smart HAS - Sistema Inteligente de Monitoramento (Flutter)."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.12.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  # State management (arquitetura em camadas + injeção via Provider)
+  provider: ^6.1.2
+  # Cliente HTTP usado para consumir a API REST do back-end (Spring Boot)
+  http: ^1.2.1
+  # Persistência local do token de autenticação e preferências
+  shared_preferences: ^2.3.2
+  # Formatação de datas/horas nos alertas
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true

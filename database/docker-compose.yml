@@ -1,0 +1,28 @@
+# Oracle Database 23ai Free para desenvolvimento local do Smart HAS.
+#   docker compose up -d        (1a subida: ~1-2 min, instala o schema sozinho)
+#   docker compose logs -f      (aguarde "DATABASE IS READY TO USE!")
+# Conexao: localhost:1521 / service FREEPDB1 / usuario smarthas / senha smarthas
+services:
+  oracle:
+    image: gvenzl/oracle-free:23-slim
+    container_name: smarthas-oracle
+    ports:
+      - "1521:1521"
+    environment:
+      ORACLE_PASSWORD: smarthas_sys
+      APP_USER: smarthas
+      APP_USER_PASSWORD: smarthas
+      TZ: America/Sao_Paulo
+    volumes:
+      - ./scripts:/opt/smarthas/scripts:ro
+      - ./docker-init:/container-entrypoint-initdb.d:ro
+      - smarthas-oracle-data:/opt/oracle/oradata
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+
+volumes:
+  smarthas-oracle-data:

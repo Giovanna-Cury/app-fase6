@@ -1,0 +1,176 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#fff}</style></head><body><svg xmlns="http://www.w3.org/2000/svg" width="1540" height="930" viewBox="0 0 1540 930" font-family="Segoe UI, Arial, sans-serif">
+<defs>
+<marker id="many" viewBox="0 0 20 20" refX="19" refY="10" markerWidth="11" markerHeight="11" orient="auto"><path d="M19 10 L1 1 M19 10 L1 10 M19 10 L1 19" stroke="#334155" stroke-width="2" fill="none"/><path d="M1 1 L1 19" stroke="#334155" stroke-width="2"/></marker>
+<marker id="one" viewBox="0 0 20 20" refX="1" refY="10" markerWidth="11" markerHeight="11" orient="auto"><path d="M6 1 L6 19 M11 1 L11 19" stroke="#334155" stroke-width="2"/></marker>
+</defs>
+<rect width="1540" height="930" fill="#ffffff"/>
+<text x="40" y="40" font-size="24" font-weight="700" fill="#0f172a">Smart HAS — Modelo Relacional (DER físico Oracle)</text>
+<text x="1500" y="40" font-size="14" text-anchor="end" fill="#64748b">notação pé-de-galinha · PK chave primária · FK chave estrangeira · UK única</text>
+<path d="M 440 124.5 H 500 V 399.5 H 560" fill="none" stroke="#334155" stroke-width="2" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="505" y="116.5" font-size="13" font-weight="600" fill="#334155" text-anchor="middle" stroke="#ffffff" stroke-width="5" paint-order="stroke">responsável (0..N)</text>
+<path d="M 960 124.5 H 1100" fill="none" stroke="#334155" stroke-width="2" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="1030" y="114.5" font-size="13" font-weight="600" fill="#334155" text-anchor="middle" stroke="#ffffff" stroke-width="5" paint-order="stroke">gera (0..N)</text>
+<path d="M 960 224.5 H 1040 V 674.5 H 1100" fill="none" stroke="#334155" stroke-width="2" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="1040" y="420" font-size="13" font-weight="600" fill="#334155" text-anchor="middle" stroke="#ffffff" stroke-width="5" paint-order="stroke">origina (0..N)</text>
+<path d="M 1440 241 V 470" fill="none" stroke="#334155" stroke-width="2" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="1440" y="420" font-size="13" font-weight="600" fill="#334155" text-anchor="middle" stroke="#ffffff" stroke-width="5" paint-order="stroke">dispara (0..N)</text>
+<path d="M 760 441 V 560" fill="none" stroke="#334155" stroke-width="2" marker-start="url(#one)" marker-end="url(#many)"/>
+<text x="760" y="530" font-size="13" font-weight="600" fill="#334155" text-anchor="middle" stroke="#ffffff" stroke-width="5" paint-order="stroke">consolidado em (0..N)</text>
+<rect x="40" y="70" width="400" height="221" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+<path d="M40 108 V80 Q40 70 50 70 H430 Q440 70 440 80 V108 Z" fill="#1e40af"/>
+<text x="54" y="95" font-size="16" font-weight="700" fill="#ffffff">SHAS_USUARIO</text>
+<text x="54" y="129.5" font-size="11" font-weight="700" fill="#b45309">PK</text>
+<text x="86" y="129.5" font-size="14" font-weight="700" fill="#0f172a">id_usuario</text>
+<text x="426" y="129.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(10)</text>
+<rect x="41" y="137" width="398" height="25" fill="#eef2f7"/>
+<text x="86" y="154.5" font-size="14" font-weight="400" fill="#0f172a">nome</text>
+<text x="426" y="154.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(100)</text>
+<text x="54" y="179.5" font-size="11" font-weight="700" fill="#047857">UK</text>
+<text x="86" y="179.5" font-size="14" font-weight="400" fill="#0f172a">username</text>
+<text x="426" y="179.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(50)</text>
+<rect x="41" y="187" width="398" height="25" fill="#eef2f7"/>
+<text x="54" y="204.5" font-size="11" font-weight="700" fill="#047857">UK</text>
+<text x="86" y="204.5" font-size="14" font-weight="400" fill="#0f172a">email</text>
+<text x="426" y="204.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(120)</text>
+<text x="86" y="229.5" font-size="14" font-weight="400" fill="#0f172a">senha_hash</text>
+<text x="426" y="229.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(100)</text>
+<rect x="41" y="237" width="398" height="25" fill="#eef2f7"/>
+<text x="86" y="254.5" font-size="14" font-weight="400" fill="#0f172a">perfil</text>
+<text x="426" y="254.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(20)</text>
+<text x="86" y="279.5" font-size="14" font-weight="400" fill="#0f172a">dt_criacao</text>
+<text x="426" y="279.5" font-size="13" fill="#64748b" text-anchor="end">TIMESTAMP</text>
+<rect x="560" y="70" width="400" height="371" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+<path d="M560 108 V80 Q560 70 570 70 H950 Q960 70 960 80 V108 Z" fill="#1e40af"/>
+<text x="574" y="95" font-size="16" font-weight="700" fill="#ffffff">SHAS_SENSOR</text>
+<text x="574" y="129.5" font-size="11" font-weight="700" fill="#b45309">PK</text>
+<text x="606" y="129.5" font-size="14" font-weight="700" fill="#0f172a">id_sensor</text>
+<text x="946" y="129.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(10)</text>
+<rect x="561" y="137" width="398" height="25" fill="#eef2f7"/>
+<text x="606" y="154.5" font-size="14" font-weight="400" fill="#0f172a">nome</text>
+<text x="946" y="154.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(100)</text>
+<text x="606" y="179.5" font-size="14" font-weight="400" fill="#0f172a">tipo</text>
+<text x="946" y="179.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(50)</text>
+<rect x="561" y="187" width="398" height="25" fill="#eef2f7"/>
+<text x="606" y="204.5" font-size="14" font-weight="400" fill="#0f172a">status</text>
+<text x="946" y="204.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(20)</text>
+<text x="606" y="229.5" font-size="14" font-weight="400" fill="#0f172a">localizacao</text>
+<text x="946" y="229.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(150)</text>
+<rect x="561" y="237" width="398" height="25" fill="#eef2f7"/>
+<text x="606" y="254.5" font-size="14" font-weight="400" fill="#0f172a">valor_atual</text>
+<text x="946" y="254.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(12,2)</text>
+<text x="606" y="279.5" font-size="14" font-weight="400" fill="#0f172a">unidade</text>
+<text x="946" y="279.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(20)</text>
+<rect x="561" y="287" width="398" height="25" fill="#eef2f7"/>
+<text x="606" y="304.5" font-size="14" font-weight="400" fill="#0f172a">latitude</text>
+<text x="946" y="304.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(9,6)</text>
+<text x="606" y="329.5" font-size="14" font-weight="400" fill="#0f172a">longitude</text>
+<text x="946" y="329.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(9,6)</text>
+<rect x="561" y="337" width="398" height="25" fill="#eef2f7"/>
+<text x="606" y="354.5" font-size="14" font-weight="400" fill="#0f172a">limite_alerta</text>
+<text x="946" y="354.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(12,2)</text>
+<text x="606" y="379.5" font-size="14" font-weight="400" fill="#0f172a">limite_critico</text>
+<text x="946" y="379.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(12,2)</text>
+<rect x="561" y="387" width="398" height="25" fill="#eef2f7"/>
+<text x="574" y="404.5" font-size="11" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="606" y="404.5" font-size="14" font-weight="400" fill="#0f172a">id_responsavel</text>
+<text x="946" y="404.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(10)</text>
+<text x="606" y="429.5" font-size="14" font-weight="400" fill="#0f172a">dt_atualizacao</text>
+<text x="946" y="429.5" font-size="13" fill="#64748b" text-anchor="end">TIMESTAMP</text>
+<rect x="1100" y="70" width="400" height="171" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+<path d="M1100 108 V80 Q1100 70 1110 70 H1490 Q1500 70 1500 80 V108 Z" fill="#1e40af"/>
+<text x="1114" y="95" font-size="16" font-weight="700" fill="#ffffff">SHAS_LEITURA</text>
+<text x="1114" y="129.5" font-size="11" font-weight="700" fill="#b45309">PK</text>
+<text x="1146" y="129.5" font-size="14" font-weight="700" fill="#0f172a">id_leitura</text>
+<text x="1486" y="129.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(12)</text>
+<rect x="1101" y="137" width="398" height="25" fill="#eef2f7"/>
+<text x="1114" y="154.5" font-size="11" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="1146" y="154.5" font-size="14" font-weight="400" fill="#0f172a">id_sensor</text>
+<text x="1486" y="154.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(10)</text>
+<text x="1146" y="179.5" font-size="14" font-weight="400" fill="#0f172a">valor</text>
+<text x="1486" y="179.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(12,2)</text>
+<rect x="1101" y="187" width="398" height="25" fill="#eef2f7"/>
+<text x="1146" y="204.5" font-size="14" font-weight="400" fill="#0f172a">classificacao</text>
+<text x="1486" y="204.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(10)</text>
+<text x="1146" y="229.5" font-size="14" font-weight="400" fill="#0f172a">dt_leitura</text>
+<text x="1486" y="229.5" font-size="13" fill="#64748b" text-anchor="end">TIMESTAMP</text>
+<rect x="1100" y="470" width="400" height="321" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+<path d="M1100 508 V480 Q1100 470 1110 470 H1490 Q1500 470 1500 480 V508 Z" fill="#1e40af"/>
+<text x="1114" y="495" font-size="16" font-weight="700" fill="#ffffff">SHAS_ALERTA</text>
+<text x="1114" y="529.5" font-size="11" font-weight="700" fill="#b45309">PK</text>
+<text x="1146" y="529.5" font-size="14" font-weight="700" fill="#0f172a">id_alerta</text>
+<text x="1486" y="529.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(10)</text>
+<rect x="1101" y="537" width="398" height="25" fill="#eef2f7"/>
+<text x="1146" y="554.5" font-size="14" font-weight="400" fill="#0f172a">titulo</text>
+<text x="1486" y="554.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(150)</text>
+<text x="1146" y="579.5" font-size="14" font-weight="400" fill="#0f172a">descricao</text>
+<text x="1486" y="579.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(1000)</text>
+<rect x="1101" y="587" width="398" height="25" fill="#eef2f7"/>
+<text x="1146" y="604.5" font-size="14" font-weight="400" fill="#0f172a">severidade</text>
+<text x="1486" y="604.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(10)</text>
+<text x="1146" y="629.5" font-size="14" font-weight="400" fill="#0f172a">localizacao</text>
+<text x="1486" y="629.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(150)</text>
+<rect x="1101" y="637" width="398" height="25" fill="#eef2f7"/>
+<text x="1146" y="654.5" font-size="14" font-weight="400" fill="#0f172a">origem</text>
+<text x="1486" y="654.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(10)</text>
+<text x="1114" y="679.5" font-size="11" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="1146" y="679.5" font-size="14" font-weight="400" fill="#0f172a">id_sensor</text>
+<text x="1486" y="679.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(10)</text>
+<rect x="1101" y="687" width="398" height="25" fill="#eef2f7"/>
+<text x="1114" y="704.5" font-size="11" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="1146" y="704.5" font-size="14" font-weight="400" fill="#0f172a">id_leitura</text>
+<text x="1486" y="704.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(12)</text>
+<text x="1146" y="729.5" font-size="14" font-weight="400" fill="#0f172a">resolvido</text>
+<text x="1486" y="729.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(1)</text>
+<rect x="1101" y="737" width="398" height="25" fill="#eef2f7"/>
+<text x="1146" y="754.5" font-size="14" font-weight="400" fill="#0f172a">dt_criacao</text>
+<text x="1486" y="754.5" font-size="13" fill="#64748b" text-anchor="end">TIMESTAMP</text>
+<text x="1146" y="779.5" font-size="14" font-weight="400" fill="#0f172a">dt_resolucao</text>
+<text x="1486" y="779.5" font-size="13" fill="#64748b" text-anchor="end">TIMESTAMP</text>
+<rect x="560" y="560" width="400" height="296" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+<path d="M560 598 V570 Q560 560 570 560 H950 Q960 560 960 570 V598 Z" fill="#1e40af"/>
+<text x="574" y="585" font-size="16" font-weight="700" fill="#ffffff">SHAS_RELATORIO_DIARIO</text>
+<text x="574" y="619.5" font-size="11" font-weight="700" fill="#b45309">PK</text>
+<text x="606" y="619.5" font-size="14" font-weight="700" fill="#0f172a">id_relatorio</text>
+<text x="946" y="619.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(12)</text>
+<rect x="561" y="627" width="398" height="25" fill="#eef2f7"/>
+<text x="574" y="644.5" font-size="11" font-weight="700" fill="#1d4ed8">FK</text>
+<text x="606" y="644.5" font-size="14" font-weight="400" fill="#0f172a">id_sensor</text>
+<text x="946" y="644.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(10)</text>
+<text x="606" y="669.5" font-size="14" font-weight="400" fill="#0f172a">dt_referencia</text>
+<text x="946" y="669.5" font-size="13" fill="#64748b" text-anchor="end">DATE</text>
+<rect x="561" y="677" width="398" height="25" fill="#eef2f7"/>
+<text x="606" y="694.5" font-size="14" font-weight="400" fill="#0f172a">qtd_leituras</text>
+<text x="946" y="694.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(10)</text>
+<text x="606" y="719.5" font-size="14" font-weight="400" fill="#0f172a">qtd_alertas</text>
+<text x="946" y="719.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(10)</text>
+<rect x="561" y="727" width="398" height="25" fill="#eef2f7"/>
+<text x="606" y="744.5" font-size="14" font-weight="400" fill="#0f172a">qtd_criticas</text>
+<text x="946" y="744.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(10)</text>
+<text x="606" y="769.5" font-size="14" font-weight="400" fill="#0f172a">valor_minimo / medio / maximo</text>
+<text x="946" y="769.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(12,2)</text>
+<rect x="561" y="777" width="398" height="25" fill="#eef2f7"/>
+<text x="606" y="794.5" font-size="14" font-weight="400" fill="#0f172a">conformidade</text>
+<text x="946" y="794.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(5,2)</text>
+<text x="606" y="819.5" font-size="14" font-weight="400" fill="#0f172a">resumo</text>
+<text x="946" y="819.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(400)</text>
+<rect x="561" y="827" width="398" height="25" fill="#eef2f7"/>
+<text x="606" y="844.5" font-size="14" font-weight="400" fill="#0f172a">dt_geracao</text>
+<text x="946" y="844.5" font-size="13" fill="#64748b" text-anchor="end">TIMESTAMP</text>
+<rect x="40" y="560" width="400" height="171" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+<path d="M40 598 V570 Q40 560 50 560 H430 Q440 560 440 570 V598 Z" fill="#475569"/>
+<text x="54" y="585" font-size="16" font-weight="700" fill="#ffffff">SHAS_LOG_EXECUCAO</text>
+<text x="54" y="619.5" font-size="11" font-weight="700" fill="#b45309">PK</text>
+<text x="86" y="619.5" font-size="14" font-weight="700" fill="#0f172a">id_log</text>
+<text x="426" y="619.5" font-size="13" fill="#64748b" text-anchor="end">NUMBER(12)</text>
+<rect x="41" y="627" width="398" height="25" fill="#eef2f7"/>
+<text x="86" y="644.5" font-size="14" font-weight="400" fill="#0f172a">rotina</text>
+<text x="426" y="644.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(60)</text>
+<text x="86" y="669.5" font-size="14" font-weight="400" fill="#0f172a">nivel</text>
+<text x="426" y="669.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(10)</text>
+<rect x="41" y="677" width="398" height="25" fill="#eef2f7"/>
+<text x="86" y="694.5" font-size="14" font-weight="400" fill="#0f172a">mensagem</text>
+<text x="426" y="694.5" font-size="13" fill="#64748b" text-anchor="end">VARCHAR2(4000)</text>
+<text x="86" y="719.5" font-size="14" font-weight="400" fill="#0f172a">dt_log</text>
+<text x="426" y="719.5" font-size="13" fill="#64748b" text-anchor="end">TIMESTAMP</text>
+<text x="40" y="912" font-size="13" fill="#64748b">SHAS_LOG_EXECUCAO é independente (trilha de auditoria gravada por PRC_REGISTRAR_LOG em transação autônoma). CHECKs: status, perfil, severidade, origem, classificacao, resolvido, limites e coordenadas.</text>
+</svg></body></html>

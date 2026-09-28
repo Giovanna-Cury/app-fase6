@@ -1,0 +1,31 @@
+# ===== Smart HAS — ignorar artefatos de build/dependências =====
+
+# --- Node / Angular (web-angular) ---
+node_modules/
+web-angular/.angular/
+web-angular/dist/
+dist/
+*.log
+
+# --- Java / Spring Boot (backend-springboot) ---
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*.class
+
+# --- Flutter (mobile-flutter) ---
+mobile-flutter/.dart_tool/
+mobile-flutter/build/
+mobile-flutter/.flutter-plugins
+mobile-flutter/.flutter-plugins-dependencies
+
+# --- IDE / SO ---
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# --- Fase 6 ---
+__pycache__/
+*.pyc
+~$*

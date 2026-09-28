@@ -1,0 +1,49 @@
+<div class="login-wrapper">
+  <div class="login-card card">
+    <div class="login-header">
+      <div class="logo-badge">
+        <!-- Ícone de escudo, igual ao app (Icons.security) -->
+        <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor" aria-hidden="true">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+        </svg>
+      </div>
+      <h1>SMART HAS</h1>
+      <p class="subtitle">Sistema Inteligente de Monitoramento</p>
+    </div>
+
+    <!-- Formulário com two-way binding [(ngModel)] -->
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="login-form">
+      <label for="username">Usuário</label>
+      <input
+        id="username"
+        name="username"
+        type="text"
+        [(ngModel)]="username"
+        placeholder="admin"
+        autocomplete="username"
+        [disabled]="loading"
+      />
+
+      <label for="password">Senha</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        [(ngModel)]="password"
+        placeholder="1234"
+        autocomplete="current-password"
+        [disabled]="loading"
+      />
+
+      <!-- Feedback de erro -->
+      <div class="banner banner-error" *ngIf="error">{{ error }}</div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="loading">
+        <span *ngIf="!loading">Entrar</span>
+        <span *ngIf="loading"><span class="spinner"></span>Entrando...</span>
+      </button>
+
+      <p class="hint">Login: <strong>admin</strong> &nbsp;•&nbsp; Senha: <strong>1234</strong></p>
+    </form>
+  </div>
+</div>

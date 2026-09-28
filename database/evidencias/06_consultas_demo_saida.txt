@@ -1,0 +1,236 @@
+
+ ID_SENSOR STATUS		ULTIMA_LEITURA							     CONFORMIDADE_24H INDICE_RISCO RESPONSAVEL
+---------- -------------------- -------------------------------------------------------------------- ---------------- ------------ ----------------
+         5 WARNING              Sensor 05 (Nível de Água) | 91,20 % | CRITICA | 27/09/2026 20:20                   96           75 Equipe de Campo
+	 3 WARNING		Sensor 03 (Qualidade do Ar) | 162,40 AQI | CRITICA | 27/09/2026 20:2		69.39		50 Operador
+				0
+
+         1 ONLINE               Sensor 01 (Temperatura) | 26,82 °C | NORMAL | 27/09/2026 20:00                  85.42           40 Operador
+	 4 OFFLINE		Sensor 04 (Movimento) | 41,86 un | NORMAL | 27/09/2026 17:00			  100		40 Administrador
+         7 ONLINE               Sensor 07 (Temperatura) | 25,63 °C | NORMAL | 27/09/2026 20:00                     75            0 Equipe de Campo
+         8 ONLINE               Sensor 08 (Nível de Água) | 46,29 % | NORMAL | 27/09/2026 20:00                 95.83            0 Equipe de Campo
+         6 ONLINE               Sensor 06 (Ruído) | 62,37 dB | NORMAL | 27/09/2026 20:00                        95.83            0 Operador
+	 2 ONLINE		Sensor 02 (Umidade) | 62,27 % | NORMAL | 27/09/2026 20:00			97.92		 0 Operador
+
+8 rows selected.
+
+
+NOME	   TIPO 	    LOCALIZACAO 	     CONFORMIDADE_24H
+---------- ---------------- ------------------------ ----------------
+Sensor 03  Qualidade do Ar  Parque Ibirapuera			69.39
+Sensor 07  Temperatura	    Itaquera - Zona Leste		   75
+Sensor 01  Temperatura      Centro de São Paulo                 85.42
+
+
+LOCALIZACAO		 INDICE_RISCO NIVEL
+------------------------ ------------ --------
+Marginal Tietê                     75 ALTO
+Parque Ibirapuera		   50 ALTO
+Centro de São Paulo                40 MODERADO
+Estação da Luz                     40 MODERADO
+Avenida Paulista		    0 BAIXO
+Rua 25 de Março                     0 BAIXO
+Itaquera - Zona Leste		    0 BAIXO
+Córrego Pirajuçara                  0 BAIXO
+
+8 rows selected.
+
+
+NOME	   TIPO 	      CONF_24H	  CONF_7D  TENDENCIA
+---------- ---------------- ---------- ---------- ----------
+Sensor 01  Temperatura		 85.42	    94.35      -8.93
+Sensor 07  Temperatura		    75	    80.95      -5.95
+Sensor 08  Nível de Água         95.83      97.92      -2.09
+Sensor 05  Nível de Água            96      97.93      -1.93
+Sensor 03  Qualidade do Ar	 69.39	    70.03	-.64
+Sensor 02  Umidade		 97.92	    98.21	-.29
+Sensor 04  Movimento		   100	    99.39	 .61
+Sensor 06  Ruído                 95.83      94.35       1.48
+
+8 rows selected.
+
+
+TIPO		      VALOR
+---------------- ----------
+CLASSIFICACAO
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Movimento		 25
+NORMAL
+
+Movimento		 80
+ALERTA
+
+Movimento		 95
+ALERTA
+
+Nível de Água            25
+NORMAL
+
+Nível de Água            80
+ALERTA
+
+Nível de Água            95
+CRITICA
+
+Qualidade do Ar 	 25
+NORMAL
+
+Qualidade do Ar 	 80
+ALERTA
+
+Qualidade do Ar 	 95
+ALERTA
+
+Ruído                    25
+NORMAL
+
+Ruído                    80
+ALERTA
+
+Ruído                    95
+CRITICA
+
+Temperatura		 25
+NORMAL
+
+Temperatura		 80
+CRITICA
+
+Temperatura		 95
+CRITICA
+
+Umidade 		 25
+NORMAL
+
+Umidade 		 80
+NORMAL
+
+Umidade 		 95
+CRITICA
+
+
+18 rows selected.
+
+
+NOME	   CLASSIFICA	     QTD	PCT
+---------- ---------- ---------- ----------
+Sensor 01  ALERTA	       9	2.7
+Sensor 01  CRITICA	      10	  3
+Sensor 01  NORMAL	     317       94.3
+Sensor 02  CRITICA	       6	1.8
+Sensor 02  NORMAL	     330       98.2
+Sensor 03  ALERTA	      90       26.7
+Sensor 03  CRITICA	      11	3.3
+Sensor 03  NORMAL	     236	 70
+Sensor 04  ALERTA	       1	 .3
+Sensor 04  CRITICA	       1	 .3
+Sensor 04  NORMAL	     328       99.4
+Sensor 05  ALERTA	       1	 .3
+Sensor 05  CRITICA	       6	1.8
+Sensor 05  NORMAL	     331       97.9
+Sensor 06  ALERTA	       8	2.4
+Sensor 06  CRITICA	      11	3.3
+Sensor 06  NORMAL	     317       94.3
+Sensor 07  ALERTA	      53       15.8
+Sensor 07  CRITICA	      11	3.3
+Sensor 07  NORMAL	     272	 81
+Sensor 08  CRITICA	       7	2.1
+Sensor 08  NORMAL	     329       97.9
+
+22 rows selected.
+
+
+DIA   RESUMO
+----- --------------------------------------------------------------------------------------------------------------
+27/09 Sensor 01 (Temperatura): 41 leituras, média 25,41 °C, máx 39,96 °C, 3 críticas, conformidade 85,37%.
+27/09 Sensor 02 (Umidade): 41 leituras, média 63,50 %, máx 100,00 %, 1 críticas, conformidade 97,56%.
+27/09 Sensor 03 (Qualidade do Ar): 42 leituras, média 76,13 AQI, máx 162,40 AQI, 1 críticas, conformidade 66,67%.
+27/09 Sensor 04 (Movimento): 35 leituras, média 27,56 un, máx 55,07 un, 0 críticas, conformidade 100,00%.
+27/09 Sensor 05 (Nível de Água): 43 leituras, média 56,14 %, máx 91,20 %, 1 críticas, conformidade 95,35%.
+27/09 Sensor 06 (Ruído): 41 leituras, média 63,74 dB, máx 86,11 dB, 1 críticas, conformidade 95,12%.
+27/09 Sensor 07 (Temperatura): 41 leituras, média 26,61 °C, máx 38,95 °C, 1 críticas, conformidade 70,73%.
+27/09 Sensor 08 (Nível de Água): 41 leituras, média 51,29 %, máx 98,73 %, 2 críticas, conformidade 95,12%.
+26/09 Sensor 01 (Temperatura): 48 leituras, média 24,52 °C, máx 38,76 °C, 2 críticas, conformidade 93,75%.
+26/09 Sensor 02 (Umidade): 48 leituras, média 62,23 %, máx 78,14 %, 0 críticas, conformidade 100,00%.
+26/09 Sensor 03 (Qualidade do Ar): 48 leituras, média 76,44 AQI, máx 158,97 AQI, 2 críticas, conformidade 66,67%.
+26/09 Sensor 04 (Movimento): 48 leituras, média 29,79 un, máx 57,51 un, 0 críticas, conformidade 100,00%.
+26/09 Sensor 05 (Nível de Água): 48 leituras, média 54,42 %, máx 66,94 %, 0 críticas, conformidade 100,00%.
+26/09 Sensor 06 (Ruído): 48 leituras, média 63,97 dB, máx 90,93 dB, 2 críticas, conformidade 91,67%.
+26/09 Sensor 07 (Temperatura): 48 leituras, média 26,26 °C, máx 38,17 °C, 1 críticas, conformidade 83,33%.
+26/09 Sensor 08 (Nível de Água): 48 leituras, média 48,24 %, máx 99,55 %, 1 críticas, conformidade 97,92%.
+25/09 Sensor 01 (Temperatura): 48 leituras, média 24,09 °C, máx 37,30 °C, 1 críticas, conformidade 97,92%.
+25/09 Sensor 02 (Umidade): 48 leituras, média 63,70 %, máx 100,00 %, 2 críticas, conformidade 95,83%.
+25/09 Sensor 03 (Qualidade do Ar): 48 leituras, média 80,56 AQI, máx 163,96 AQI, 5 críticas, conformidade 66,67%.
+25/09 Sensor 04 (Movimento): 48 leituras, média 30,04 un, máx 119,77 un, 1 críticas, conformidade 97,92%.
+25/09 Sensor 05 (Nível de Água): 48 leituras, média 57,43 %, máx 97,08 %, 2 críticas, conformidade 95,83%.
+25/09 Sensor 06 (Ruído): 48 leituras, média 63,20 dB, máx 93,38 dB, 1 críticas, conformidade 95,83%.
+25/09 Sensor 07 (Temperatura): 48 leituras, média 26,66 °C, máx 39,24 °C, 2 críticas, conformidade 75,00%.
+25/09 Sensor 08 (Nível de Água): 48 leituras, média 47,72 %, máx 94,82 %, 1 críticas, conformidade 97,92%.
+
+24 rows selected.
+
+Leitura 2686 => NORMAL | alerta: -
+Leitura 2687 => CRITICA | alerta: 41
+Formatado: Sensor 01 (Temperatura) | 37,80 °C | CRITICA | 27/09/2026 20:20
+Esperado -> ORA-20001: Sensor 999 nao encontrado.
+Esperado -> ORA-20002: Valor de leitura invalido: informe um numero entre -1000 e 100000 e uma data que nao esteja no futuro.
+
+PL/SQL procedure successfully completed.
+
+Responsavel	  Sensores  Atencao  Leituras  Criticas  Abertos  Conf.%
+Operador	  4	    2	     195       9	 2	  86.79
+Equipe de Campo   3	    1	     146       4	 1	  88.94
+Administrador	  1	    1	     42        0	 1	  100
+
+PL/SQL procedure successfully completed.
+
+Relatorio de hoje: 8 sensores consolidados.
+Watchdog: 0 sensor(es) marcados OFFLINE.
+Esperado -> ORA-20004: Data de referencia nao pode estar no futuro: 28/09/2026
+
+PL/SQL procedure successfully completed.
+
+
+ ID_ALERTA SEVERIDADE ORIGEM
+---------- ---------- ----------
+TITULO																									 CRIADO_EM
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -----------
+	41 CRITICAL   AUTOMATICO
+Leitura crítica: Sensor 01 (Temperatura)                                                                                                                                                                 27/09 20:20
+
+	39 CRITICAL   AUTOMATICO
+Leitura crítica: Sensor 05 (Nível de Água)                                                                                                                                                               27/09 20:20
+
+	38 CRITICAL   AUTOMATICO
+Leitura crítica: Sensor 03 (Qualidade do Ar)                                                                                                                                                             27/09 20:20
+
+	35 CRITICAL   MANUAL
+Área de risco detectada                                                                                                                                                                                  27/09 19:20
+
+	40 HIGH       AUTOMATICO
+Sensor sem comunicação: Sensor 04                                                                                                                                                                        27/09 20:20
+
+	36 HIGH       MANUAL
+Alagamento reportado por moradores																					 27/09 17:20
+
+
+6 rows selected.
+
+
+QUANDO	       ROTINA				NIVEL	   MENSAGEM
+-------------- -------------------------------- ---------- ------------------------------------------------------------------------------------------
+27/09 20:20:53 PRC_GERAR_RELATORIO_DIARIO	ERROR	   28/09/2026: ORA-20004: Data de referencia nao pode estar no futuro: 28/09/2026
+27/09 20:20:53 PRC_VERIFICAR_SENSORES_INATIVOS	INFO	   0 sensor(es) marcados como OFFLINE (tolerancia 60 min).
+27/09 20:20:53 PRC_GERAR_RELATORIO_DIARIO	INFO	   Relatorio de 27/09/2026 gerado para 8 sensores.
+27/09 20:20:53 PRC_REGISTRAR_LEITURA		WARN	   Valor/data invalidos p/ sensor 1: 999999
+27/09 20:20:53 PRC_REGISTRAR_LEITURA		WARN	   Sensor inexistente: 999
+27/09 20:20:51 PRC_GERAR_RELATORIO_DIARIO	INFO	   Relatorio de 20/09/2026 gerado para 8 sensores.
+27/09 20:20:51 PRC_GERAR_RELATORIO_DIARIO	INFO	   Relatorio de 21/09/2026 gerado para 8 sensores.
+27/09 20:20:51 PRC_GERAR_RELATORIO_DIARIO	INFO	   Relatorio de 22/09/2026 gerado para 8 sensores.
+27/09 20:20:51 PRC_GERAR_RELATORIO_DIARIO	INFO	   Relatorio de 23/09/2026 gerado para 8 sensores.
+27/09 20:20:51 PRC_GERAR_RELATORIO_DIARIO	INFO	   Relatorio de 24/09/2026 gerado para 8 sensores.
+27/09 20:20:51 PRC_GERAR_RELATORIO_DIARIO	INFO	   Relatorio de 25/09/2026 gerado para 8 sensores.
+27/09 20:20:51 PRC_GERAR_RELATORIO_DIARIO	INFO	   Relatorio de 26/09/2026 gerado para 8 sensores.
+
+12 rows selected.
+

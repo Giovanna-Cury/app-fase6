@@ -1,0 +1,105 @@
+<section class="page">
+  <div class="page-head">
+    <h1>Painel de Sensores</h1>
+    <div class="head-actions">
+      <span
+        class="engine-chip"
+        *ngIf="summary"
+        [class.jpa]="summary.dataEngine !== 'ORACLE_PLSQL'"
+        [title]="'Regras de negócio executadas por: ' + summary.dataEngine"
+      >
+        {{ summary.dataEngine === 'ORACLE_PLSQL' ? 'Oracle PL/SQL' : 'Modo local (H2)' }}
+      </span>
+      <button type="button" class="btn btn-secondary" (click)="load()" [disabled]="loading">
+        Atualizar
+      </button>
+    </div>
+  </div>
+
+  <!-- KPIs (GET /api/dashboard/summary) -->
+  <div class="kpi-grid" *ngIf="summary">
+    <div class="kpi-card">
+      <span class="kpi-label">Total de sensores</span>
+      <span class="kpi-value">{{ summary.totalSensors }}</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">Online</span>
+      <span class="kpi-value kpi-online">{{ summary.onlineSensors }}</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">Offline</span>
+      <span class="kpi-value kpi-offline">{{ summary.offlineSensors }}</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">Em atenção</span>
+      <span class="kpi-value kpi-warning">{{ summary.warningSensors }}</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">Leituras (24h)</span>
+      <span class="kpi-value">{{ summary.readingsLast24h | number }}</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">Alertas abertos</span>
+      <span class="kpi-value kpi-offline">{{ summary.activeAlerts }}</span>
+      <span class="kpi-hint">{{ summary.criticalAlerts }} críticos</span>
+    </div>
+  </div>
+
+  <!-- Loading -->
+  <div class="state-box" *ngIf="loading">
+    <span class="spinner"></span> Carregando sensores...
+  </div>
+
+  <!-- Erro com retry -->
+  <div class="banner banner-error" *ngIf="error && !loading">
+    {{ error }}
+    <button type="button" class="btn btn-small" (click)="load()">Tentar novamente</button>
+  </div>
+
+  <!-- Tabela de sensores: clique abre o detalhe com leituras e indicadores -->
+  <div class="table-wrapper" *ngIf="!loading && !error">
+    <table class="data-table" *ngIf="sensors.length > 0; else emptyState">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>Tipo</th>
+          <th>Localização</th>
+          <th>Valor</th>
+          <th>Limites (alerta / crítico)</th>
+          <th>Status</th>
+          <th>Responsável</th>
+          <th>Atualizado em</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of sensors" class="clickable" (click)="openSensor(s)" title="Ver detalhes">
+          <td>{{ s.id }}</td>
+          <td>{{ s.name }}</td>
+          <td>{{ s.type }}</td>
+          <td>{{ s.location }}</td>
+          <td>{{ s.value | number: '1.0-2' }} {{ s.unit }}</td>
+          <td class="muted">
+            {{ s.alertThreshold ?? '–' }} / {{ s.criticalThreshold ?? '–' }} {{ s.unit }}
+          </td>
+          <td>
+            <span
+              class="badge"
+              [class.badge-online]="s.status === 'ONLINE'"
+              [class.badge-warning]="s.status === 'WARNING'"
+              [class.badge-offline]="s.status === 'OFFLINE'"
+            >
+              {{ s.status }}
+            </span>
+          </td>
+          <td>{{ s.responsibleName ?? '–' }}</td>
+          <td>{{ s.updatedAt | date: 'dd/MM HH:mm' }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #emptyState>
+      <div class="state-box">Nenhum sensor cadastrado.</div>
+    </ng-template>
+  </div>
+</section>

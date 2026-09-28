@@ -1,0 +1,163 @@
+<section class="page">
+  <div class="page-head">
+    <h1>Relatórios e Rotinas PL/SQL</h1>
+    <button type="button" class="btn btn-secondary" (click)="load()" [disabled]="loading">Atualizar</button>
+  </div>
+
+  <!-- Filtro + rotinas batch (ADMIN) -->
+  <div class="card toolbar">
+    <div class="field">
+      <label for="date">Data de referência</label>
+      <input id="date" name="date" type="date" [(ngModel)]="date" (change)="load()" />
+    </div>
+
+    <ng-container *ngIf="isAdmin">
+      <button type="button" class="btn btn-primary" (click)="generateReport()" [disabled]="running">
+        Gerar relatório do dia
+      </button>
+      <div class="field small">
+        <label for="tolerance">Tolerância (min)</label>
+        <input id="tolerance" name="tolerance" type="number" min="1" [(ngModel)]="toleranceMinutes" />
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="checkInactive()" [disabled]="running">
+        Verificar sensores inativos
+      </button>
+    </ng-container>
+    <span class="muted" *ngIf="!isAdmin">Rotinas batch disponíveis apenas para ADMIN.</span>
+  </div>
+
+  <div class="banner banner-success spaced" *ngIf="routineMsg">{{ routineMsg }}</div>
+  <div class="banner banner-error spaced" *ngIf="routineError">{{ routineError }}</div>
+
+  <!-- Relatório diário (SHAS_RELATORIO_DIARIO) -->
+  <h2 class="section-title">Consolidado diário por sensor · PRC_GERAR_RELATORIO_DIARIO</h2>
+
+  <div class="state-box" *ngIf="loading"><span class="spinner"></span> Carregando relatório...</div>
+  <div class="banner banner-error" *ngIf="error && !loading">{{ error }}</div>
+
+  <div class="table-wrapper" *ngIf="!loading && !error">
+    <table class="data-table" *ngIf="daily.length > 0; else noReport">
+      <thead>
+        <tr>
+          <th>Sensor</th>
+          <th>Leituras</th>
+          <th>Mín / Méd / Máx</th>
+          <th>Alerta</th>
+          <th>Críticas</th>
+          <th>Conformidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of daily" [title]="r.summary">
+          <td>
+            <strong>{{ r.sensorName }}</strong>
+            <div class="muted small-text">{{ r.sensorType }}</div>
+          </td>
+          <td>{{ r.readings }}</td>
+          <td>
+            <ng-container *ngIf="r.readings > 0; else dash">
+              {{ r.minValue | number: '1.0-2' }} / {{ r.avgValue | number: '1.0-2' }} /
+              {{ r.maxValue | number: '1.0-2' }} {{ r.unit }}
+            </ng-container>
+          </td>
+          <td>{{ r.alertReadings }}</td>
+          <td>
+            <span class="badge" [class.cls-critica]="r.criticalReadings > 0" [class.cls-normal]="r.criticalReadings === 0">
+              {{ r.criticalReadings }}
+            </span>
+          </td>
+          <td>
+            <div class="bar" *ngIf="r.conformity !== null; else dash">
+              <div
+                class="bar-fill"
+                [style.width.%]="r.conformity"
+                [class.bar-ok]="r.conformity >= 95"
+                [class.bar-warn]="r.conformity < 95 && r.conformity >= 80"
+                [class.bar-bad]="r.conformity < 80"
+              ></div>
+              <span>{{ r.conformity | number: '1.0-1' }}%</span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #noReport>
+      <div class="state-box">
+        Nenhum relatório consolidado para esta data.
+        <span *ngIf="isAdmin">Clique em <strong>Gerar relatório do dia</strong>.</span>
+      </div>
+    </ng-template>
+  </div>
+
+  <ng-template #dash><span class="muted">–</span></ng-template>
+
+  <!-- Resumo por responsável (SYS_REFCURSOR) -->
+  <h2 class="section-title">Resumo por responsável (24h) · PRC_RESUMO_POR_RESPONSAVEL</h2>
+  <div class="table-wrapper">
+    <table class="data-table" *ngIf="responsibles.length > 0">
+      <thead>
+        <tr>
+          <th>Responsável</th>
+          <th>Sensores</th>
+          <th>Em atenção</th>
+          <th>Leituras</th>
+          <th>Críticas</th>
+          <th>Alertas abertos</th>
+          <th>Conformidade média</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of responsibles">
+          <td>
+            <strong>{{ u.name }}</strong>
+            <div class="muted small-text">{{ u.role }}</div>
+          </td>
+          <td>{{ u.sensors }}</td>
+          <td>{{ u.sensorsNeedingAttention }}</td>
+          <td>{{ u.readings | number }}</td>
+          <td>{{ u.criticalReadings }}</td>
+          <td>
+            <span class="badge" [class.sev-critical]="u.openAlerts > 0" [class.cls-normal]="u.openAlerts === 0">
+              {{ u.openAlerts }}
+            </span>
+          </td>
+          <td>{{ u.averageConformity !== null ? (u.averageConformity | number: '1.0-1') + '%' : '–' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Auditoria (ADMIN) -->
+  <ng-container *ngIf="isAdmin">
+    <h2 class="section-title">Trilha de auditoria · SHAS_LOG_EXECUCAO</h2>
+    <div class="table-wrapper">
+      <table class="data-table" *ngIf="logs.length > 0">
+        <thead>
+          <tr>
+            <th>Quando</th>
+            <th>Rotina</th>
+            <th>Nível</th>
+            <th>Mensagem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let l of logs">
+            <td class="nowrap">{{ l.loggedAt | date: 'dd/MM HH:mm:ss' }}</td>
+            <td class="mono">{{ l.routine }}</td>
+            <td>
+              <span
+                class="badge"
+                [class.cls-normal]="l.level === 'INFO'"
+                [class.cls-alerta]="l.level === 'WARN'"
+                [class.cls-critica]="l.level === 'ERROR'"
+              >
+                {{ l.level }}
+              </span>
+            </td>
+            <td class="muted">{{ l.message }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-container>
+</section>

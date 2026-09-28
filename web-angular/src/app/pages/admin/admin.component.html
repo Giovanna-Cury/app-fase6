@@ -1,0 +1,118 @@
+<section class="page">
+  <h1>Gestão de Alertas</h1>
+
+  <!-- Formulário de criação com [(ngModel)] -->
+  <div class="card form-card">
+    <h2>Novo alerta</h2>
+
+    <form (ngSubmit)="createAlert()" #alertForm="ngForm" class="alert-form">
+      <div class="form-row">
+        <div class="field">
+          <label for="title">Título *</label>
+          <input
+            id="title"
+            name="title"
+            type="text"
+            [(ngModel)]="form.title"
+            placeholder="Ex.: Área de risco detectada"
+            [disabled]="submitting"
+          />
+        </div>
+
+        <div class="field">
+          <label for="location">Localização *</label>
+          <input
+            id="location"
+            name="location"
+            type="text"
+            [(ngModel)]="form.location"
+            placeholder="Ex.: Centro de São Paulo"
+            [disabled]="submitting"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="description">Descrição</label>
+        <textarea
+          id="description"
+          name="description"
+          rows="2"
+          [(ngModel)]="form.description"
+          placeholder="Detalhes do alerta"
+          [disabled]="submitting"
+        ></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="severity">Severidade *</label>
+          <select id="severity" name="severity" [(ngModel)]="form.severity" [disabled]="submitting">
+            <option *ngFor="let sev of severities" [value]="sev">{{ sev }}</option>
+          </select>
+        </div>
+
+        <div class="field field-submit">
+          <button type="submit" class="btn btn-primary" [disabled]="submitting">
+            <span *ngIf="!submitting">Criar alerta</span>
+            <span *ngIf="submitting">Enviando...</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="banner banner-success" *ngIf="successMsg">{{ successMsg }}</div>
+      <div class="banner banner-error" *ngIf="formError">{{ formError }}</div>
+    </form>
+  </div>
+
+  <!-- Lista de alertas -->
+  <div class="list-head">
+    <h2>Alertas registrados</h2>
+    <button type="button" class="btn btn-secondary" (click)="load()" [disabled]="loading">
+      Atualizar
+    </button>
+  </div>
+
+  <div class="state-box" *ngIf="loading"><span class="spinner"></span> Carregando alertas...</div>
+
+  <div class="banner banner-error" *ngIf="error && !loading">
+    {{ error }}
+    <button type="button" class="btn btn-small" (click)="load()">Tentar novamente</button>
+  </div>
+
+  <div class="alert-list" *ngIf="!loading && !error">
+    <div class="state-box" *ngIf="alerts.length === 0">Nenhum alerta registrado.</div>
+
+    <div class="alert-item" *ngFor="let a of alerts">
+      <div class="alert-main">
+        <div class="alert-title-row">
+          <span
+            class="badge"
+            [class.sev-low]="a.severity === 'LOW'"
+            [class.sev-medium]="a.severity === 'MEDIUM'"
+            [class.sev-high]="a.severity === 'HIGH'"
+            [class.sev-critical]="a.severity === 'CRITICAL'"
+          >
+            {{ a.severity }}
+          </span>
+          <strong>{{ a.title }}</strong>
+          <span class="badge badge-resolved" *ngIf="a.resolved">RESOLVIDO</span>
+          <span class="badge badge-origin" *ngIf="a.origin === 'AUTOMATICO'" title="Gerado por rotina PL/SQL">
+            AUTOMÁTICO
+          </span>
+        </div>
+        <p class="alert-desc" *ngIf="a.description">{{ a.description }}</p>
+        <p class="alert-meta">{{ a.location }} · {{ a.createdAt | date: 'dd/MM/yyyy HH:mm' }}</p>
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-resolve"
+        (click)="resolve(a.id)"
+        [disabled]="a.resolved"
+      >
+        {{ a.resolved ? 'Resolvido' : 'Resolver' }}
+      </button>
+    </div>
+  </div>
+</section>

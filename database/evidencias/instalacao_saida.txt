@@ -1,0 +1,229 @@
+>>> 00 - Removendo objetos anteriores
+Removido: PROCEDURE PRC_RESUMO_POR_RESPONSAVEL
+Removido: PROCEDURE PRC_VERIFICAR_SENSORES_INATIVOS
+Removido: PROCEDURE PRC_GERAR_RELATORIO_DIARIO
+Removido: PROCEDURE PRC_REGISTRAR_LEITURA
+Removido: PROCEDURE PRC_REGISTRAR_LOG
+Removido: FUNCTION FN_FORMATAR_LEITURA
+Removido: FUNCTION FN_CALC_INDICE_RISCO
+Removido: FUNCTION FN_CALC_CONFORMIDADE
+Removido: FUNCTION FN_CLASSIFICAR_LEITURA
+Removido: VIEW VW_SHAS_PAINEL_SENSOR
+Removido: TABLE SHAS_LOG_EXECUCAO
+Removido: TABLE SHAS_RELATORIO_DIARIO
+Removido: TABLE SHAS_ALERTA
+Removido: TABLE SHAS_LEITURA
+Removido: TABLE SHAS_SENSOR
+Removido: TABLE SHAS_USUARIO
+
+PL/SQL procedure successfully completed.
+
+>>> 01 - Criando tabelas, constraints e indices
+
+Table created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Table created.
+
+
+Index created.
+
+
+Index created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Table created.
+
+
+Index created.
+
+
+Comment created.
+
+
+Table created.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Table created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Table created.
+
+
+Index created.
+
+
+Comment created.
+
+>>> 02 - Criando functions
+
+Function created.
+
+
+Function created.
+
+
+Function created.
+
+
+Function created.
+
+>>> 03 - Criando procedures
+
+Procedure created.
+
+
+Procedure created.
+
+
+Procedure created.
+
+
+Procedure created.
+
+
+Procedure created.
+
+>>> 04 - Carregando dados simulados
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Table altered.
+
+
+Table altered.
+
+Leituras simuladas inseridas: 2682
+
+PL/SQL procedure successfully completed.
+
+
+8 rows merged.
+
+
+34 rows created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Commit complete.
+
+Sensor 03: CRITICA / alerta 38
+Sensor 05: ALERTA / alerta 39
+Sensor 05: CRITICA / alerta 39 (escalonado)
+Sensores marcados OFFLINE: 1
+Relatorios diarios gerados.
+
+PL/SQL procedure successfully completed.
+
+
+TABELA		       REGISTROS
+--------------------- ----------
+SHAS_USUARIO		       3
+SHAS_SENSOR		       8
+SHAS_LEITURA		    2685
+SHAS_ALERTA		      40
+SHAS_RELATORIO_DIARIO	      64
+SHAS_LOG_EXECUCAO	       9
+
+6 rows selected.
+
+>>> 05 - Criando views
+
+View created.
+
+>>> Recompilando objetos invalidados pelo DDL da carga (ALTER ... IDENTITY)
+
+PL/SQL procedure successfully completed.
+
+>>> Objetos invalidos (esperado: nenhuma linha)
+
+no rows selected
+
+>>> Instalacao concluida. Rode 06_consultas_demo.sql para a demonstracao.

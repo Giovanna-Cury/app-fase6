@@ -1,0 +1,101 @@
+/* Gestão de alertas — tema escuro */
+.page h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.page h2 {
+  font-size: 1.1rem;
+  color: var(--text);
+  margin: 0 0 16px;
+}
+
+.form-card {
+  margin-bottom: 28px;
+}
+
+.alert-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-submit {
+  justify-content: flex-end;
+}
+
+.list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.alert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.alert-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: var(--shadow);
+}
+
+.alert-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.alert-title-row strong {
+  color: var(--text);
+}
+
+.badge-origin {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+}
+
+.alert-desc {
+  margin: 8px 0 4px;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.alert-meta {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .alert-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
